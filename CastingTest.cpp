@@ -19,7 +19,6 @@ public:
 
     virtual int test1() = 0;
     virtual int test2() = 0;
-
 };
 
 // derived class
@@ -81,7 +80,7 @@ void advanceEdges(IAllVertices* vertices) {
     for (int i = 0; i < totalEdgeCount_; i++) { advanceEdge(vertices); }
 }
 
-
+// create, populate, and return an array of random numbers
 int* makeRandomArray() {
     // fill random array
     random_device rd;  // seeds the rng
@@ -95,7 +94,6 @@ int* makeRandomArray() {
 
 
 int main() {
-
     // instantiate lower level class assigned to base class pointer
     IAllVertices* parentObject = new AllLIFNeurons();   // 4 levels from base class
     // IAllVertices* parentObject = new AllSpikingNeurons();  // 2 levels from base class
