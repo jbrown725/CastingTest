@@ -62,13 +62,13 @@ public:
 
 // caller casting
 void advanceEdge(AllSpikingNeurons* neurons) {
-    int result = neurons->test2();
+    int result = neurons->test1();
 }
 
 // callee casting
 void advanceEdge(IAllVertices* neurons) {
     AllSpikingNeurons* spNeurons = dynamic_cast<AllSpikingNeurons*>(neurons);
-    int result = spNeurons->test2();
+    int result = spNeurons->test1();
 }
 
 
@@ -106,8 +106,8 @@ void runTests(IAllVertices* base, int& calleeTime, int& callerTime) {
 void outputResults(string levels, int calleeTime, int callerTime) {
     cout << "Casting " << levels << " levels from base class:" << endl;
 
-    cout << "  Callee casting time: " << setw(5) << calleeTime << " ms" << endl;
-    cout << "  Caller casting time: " << setw(5) << callerTime << " ms" << endl;
+    cout << "  Callee-casting time: " << setw(5) << calleeTime << " ms" << endl;
+    cout << "  Caller-casting time: " << setw(5) << callerTime << " ms" << endl;
     cout << "  Difference in time:  " << setw(5) << calleeTime - callerTime << " ms" << endl;
     cout << "  Casting in the caller method is " << (float)calleeTime / callerTime
         << " times faster than casting in the callee method" << endl << endl;
@@ -124,8 +124,6 @@ int main() {
     // declare variables that will hold execution times 
     int calleeTime;
     int callerTime;
-
-    
 
     // run tests and output results
     runTests(base4, calleeTime, callerTime);
